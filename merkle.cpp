@@ -1,5 +1,5 @@
 // merkle.cpp
-#include <bitcoin/system.hpp>
+#include <bitcoin/bitcoin.hpp>
 
 // Merkle Root Hash
 bc::hash_digest create_merkle(bc::hash_list &merkle)
