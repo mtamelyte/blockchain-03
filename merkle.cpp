@@ -38,7 +38,7 @@ bc::hash_digest create_merkle(bc::hash_list &merkle)
         // DEBUG output -------------------------------------
         std::cout << "Current merkle hash list:" << std::endl;
         for (const auto &hash : merkle)
-            std::cout << " " << bc::encode_base16(hash) << std::endl;
+            std::cout << " " << bc::encode_hash(hash) << std::endl;
         std::cout << std::endl;
         // --------------------------------------------------
     }
@@ -50,13 +50,19 @@ int main()
 {
     // Transactions hashes from a block (#100 000) to reproduce the same merkle root
     bc::hash_list tx_hashes{{
-        bc::hash_literal("00c816e106ceaa817c7ad98d2f6b40a3248589a4e5e4bb590d68f279cd2711b8"),
-        bc::hash_literal("fff2525b8931402dd09222c50775608f75787bd2b87e56995a7bdd30f79702c4"),
-        bc::hash_literal("6359f0868171b1d194cbee1af2f16ea598ae8fad666d9b012c8ed2b79a236ec4"),
-        bc::hash_literal("e9a66845e05d5abc0ad04ec80f774a7e585c6e8db975962d069a522137b80c1d"),
+        bc::hash_literal("bcdc61cbecf6137eec5c8ad4047fcdc36710e77e404b17378a33ae605920afe1"),
+        bc::hash_literal("f7f4c281ee20ab8d1b00734b92b60582b922211a7e470accd147c6d70c9714a3"),
+        bc::hash_literal("b5f6e3b217fa7f6d58081b5d2a9a6607eebd889ed2c470191b2a45e0dcb98eb0"),
+        bc::hash_literal("4206f171f06913b1d40597edcaf75780559231fb504c49ba85a4a9ae949e8b95"),
+        bc::hash_literal("a1a6ad6ff321c76496a89b6a4eb9bcfb76b9e068b677d5c7d427c51ca08c273d"),
+        bc::hash_literal("89c82039452c14a9314b5834e5d2b9241b1fdccdb6e4f4f68e49015540faaf95"),
+        bc::hash_literal("25c6a1f8c0b5be2bee1e8dd3478b4ec8f54bbc3742eaf90bfb5afd46cf217ad9"),
+        bc::hash_literal("57eef4da5edacc1247e71d3a93ed2ccaae69c302612e414f98abf8db0b671eae"),
+        bc::hash_literal("8d30eb0f3e65b8d8a9f26f6f73fc5aafa5c0372f9bb38aa38dd4c9dd1933e090"),
+        bc::hash_literal("13e3167d46334600b59a5aa286dd02147ac33e64bfc2e188e1f0c0a442182584"),
     }};
     const bc::hash_digest merkle_root = create_merkle(tx_hashes);
-    std::cout << "Merkle Root Hash: " << bc::encode_base16(merkle_root) << std::endl;
+    std::cout << "Merkle Root Hash: " << bc::encode_hash(merkle_root) << std::endl;
     // std::cout << "Merkle Root Hash-2: " << bc::encode_hash(merkle_root) << std::endl;
     return 0;
 }

@@ -72,3 +72,8 @@ sudo ldconfig
 ````
 9. Finally, clone this directory and run ```make```.
 10. To run the program, run ```./main```.
+## Testavimas su duotais hash'ais
+Paleidus kodą kaip yra, Merkle Root Hash buvo neteisingas ir nesutapo su Merkle Root Hash iš 100000 bloko, bet pakeitus į encode_base16 į encode_hash, gautas teisingas rezultatas.
+
+## Testavimas su kitais hash'ais
+Pasirinktas 150001-asis Bitcoin blokas, kuriame buvo įtraukta 10 tranzakcijų, ir jų hash'ai sudėti į programą vietoj testinių pavyzdžių.
