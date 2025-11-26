@@ -74,6 +74,14 @@ sudo ldconfig
 10. To run the program, run ```./main```.
 ## Testavimas su duotais hash'ais
 Paleidus kodą kaip yra, Merkle Root Hash buvo neteisingas ir nesutapo su Merkle Root Hash iš 100000 bloko, bet pakeitus į encode_base16 į encode_hash, gautas teisingas rezultatas.
+<img width="1205" height="536" alt="Screenshot 2025-11-26 164656" src="https://github.com/user-attachments/assets/58c58681-1a26-43eb-8db5-3cba96d2045f" />
+
+<img width="978" height="285" alt="Screenshot 2025-11-25 225304" src="https://github.com/user-attachments/assets/96b759aa-8387-4f98-bfb5-1ffd443bccf2" />
+
+<img width="969" height="248" alt="Screenshot 2025-11-26 164648" src="https://github.com/user-attachments/assets/8c45594d-013c-4a7c-8478-2a42534e90f4" />
 
 ## Testavimas su kitais hash'ais
 Pasirinktas 150001-asis Bitcoin blokas, kuriame buvo įtraukta 10 tranzakcijų, ir jų hash'ai sudėti į programą vietoj testinių pavyzdžių.
+
+<img width="1221" height="542" alt="Screenshot 2025-11-26 164042" src="https://github.com/user-attachments/assets/3a65c35d-2d9b-439c-adba-4a08a653ff55" />
+<img width="980" height="522" alt="Screenshot 2025-11-26 164035" src="https://github.com/user-attachments/assets/6022ef28-a398-43dc-a222-c672301aea0d" />
