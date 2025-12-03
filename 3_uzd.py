@@ -1,14 +1,26 @@
-# `rpc_transaction.py` example
 from bitcoin.rpc import RawProxy
-# Create a connection to local Bitcoin Core node
-p = RawProxy(btc_conf_file=r'D:\LocalData\bitcoin.conf')
 
-txid = "0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2"
+p = RawProxy()
+
+txid = "4410c8d14ff9f87ceeed1d65cb58e7c7b2422b2d7529afc675208ce2ce09ed7d"
 
 raw_tx = p.getrawtransaction(txid)
-# Decode the transaction hex into a JSON object
+
 decoded_tx = p.decoderawtransaction(raw_tx)
 
-fee = decoded_tx.calculate_fee()
+total_input = 0
+for vin in decoded_tx['vin']:
+      prev_txid = vin['txid']
+      prev_vout = vin['vout']
+      prev_tx = p.getrawtransaction(prev_txid)
+      decoded_prev_tx = p.decoderawtransaction(prev_tx)
+
+      input_value = decoded_prev_tx['vout'][prev_vout]['value']
+      total_input += input_value
+
+total_output = sum(vout['value'] for vout in decoded_tx['vout'])
+
+fee = (total_input - total_output)*100000000
 
 print(fee)
+
